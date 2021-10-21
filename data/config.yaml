@@ -1,0 +1,13 @@
+sites:
+  el_tiempo: 
+    url: https://www.eltiempo.com/
+    queries: 
+      homepage_articule_link: ''
+      articule_body: ''
+      articule_title: ''
+  semana:
+    url: https://www.semana.com/
+      queries: 
+      homepage_articule_link: '.link a'
+      articule_body: ''
+      articule_title: ''

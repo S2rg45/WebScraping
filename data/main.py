@@ -23,20 +23,23 @@ def _news_scraper(news_site_uid):
     homepage = news.HomePage(news_site_uid, host)
     articles = []
     for link in homepage.article_links:
+        print(link)
         article = _fetch_article(news_site_uid, host, link)
         if article:
             logger.info('Yeeaaaa')
             articles.append(article)
             print(article.title)
-    print(len(article))
-    _save_articles(news_site_uid, articles)
+    if not articles:
+        logging.info('Not articules obtined there {}'.format(articles))
+    else:
+        _save_articles(news_site_uid, articles)
 
 
 def _save_articles(news_site_uid, articles):
     now = datetime.datetime.now().strftime('%Y_%m_%d')
     file_name = '{news_site_uid}_{datetime}_articles.csv'.format(
         news_site_uid=news_site_uid, datetime=now)
-    csv_headers = list(filter(lambda property: not property.startswith('_'), dir(articles[0])))
+    csv_headers = list(filter(lambda property: not property.startswith('_'), dir(articles[0 ])))
     with open(file_name, mode='w+') as f:
         writer = csv.writer(f)
         writer.writerow(csv_headers)

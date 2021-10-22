@@ -7,7 +7,7 @@ sites:
       articule_title: ''
   semana:
     url: https://www.semana.com/
-      queries: 
-      homepage_articule_link: '.link a'
-      articule_body: ''
-      articule_title: ''
+    queries: 
+      homepage_articule_link: '.title-container a'
+      articule_body: '.contenido'
+      articule_title: '.titulo'
